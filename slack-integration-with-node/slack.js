@@ -21,9 +21,8 @@ const sendSlackMessage = async (message, channel = null) => {
   }
 };
 
-const sendDirectMessage = async (userId, message) => {
+const sendDirectMessage = async (userId, emial, message) => {
   try {
-    const email = 'muhammad.ullah@puppydog.io';
     const response = await web.users.lookupByEmail({ email });
     const conversation = await web.conversations.open({ users: userId });
     const channelId = conversation.channel.id;
@@ -35,7 +34,6 @@ const sendDirectMessage = async (userId, message) => {
     });
     return true;
   } catch (error) {
-    console.log("----error----", error)
     console.error('Error sending Slack message:', error);
     return false;
   }
