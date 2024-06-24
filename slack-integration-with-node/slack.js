@@ -25,12 +25,8 @@ const sendDirectMessage = async (userId, message) => {
   try {
     const email = 'muhammad.ullah@puppydog.io';
     const response = await web.users.lookupByEmail({ email });
-    console.log("--userId---", response.user.id)
     const conversation = await web.conversations.open({ users: userId });
     const channelId = conversation.channel.id;
-
-    console.log("-----conversation-----", conversation);
-    console.log("------channelId-----", channelId);
 
     await web.chat.postMessage({
       channel: channelId,
