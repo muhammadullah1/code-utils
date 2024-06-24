@@ -1,9 +1,9 @@
 const { WebClient } = require("@slack/web-api");
 
-// const config = {
-//   slackBotToken: "",
-//   slackChannelId: "",
-// };
+const config = {
+  slackBotToken: process.env.SLACKBOTTOKEN,
+  slackChannelId: process.env.SLACKCHANNELID,
+};
 
 const web = new WebClient(config.slackBotToken);
 
